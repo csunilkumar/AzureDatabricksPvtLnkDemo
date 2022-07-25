@@ -26,3 +26,10 @@ param location string = 'westus2'`
 `az deployment sub create \
     --location "westus2" \
     --template-file main.bicep `
+
+| Name |Type |Description|
+|--|--|--|
+|ADB_PRVT_LNK_VNET|	Virtual network	| Vnet with 3 subnets, 2 subnets would host the Azure Databricks Clusters and one for Private Endpoint |
+|databricksuldupgcah4nd2|	Azure Databricks Service|	Azure Databricks Workspace|
+|{resourceGroupName}-nsg|	Network security group|	NSG for Hub|
+||Workspace Endpoint| This private endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link.|
