@@ -1,6 +1,7 @@
 # AzureDatabricksPvtLnkDemo
 Bicep files to create Azure Databricks workspace enable with Back-end Private Link, also known as data plane to control plane
 
+![Overview Diagram](images/EntityRelation01.png)
 
 # To Do
 - Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
