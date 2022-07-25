@@ -3,6 +3,17 @@ Bicep files to create Azure Databricks workspace enable with Back-end Private Li
 
 ![Overview Diagram](images/EntityRelation01.png)
 
+# Entity relationship
+Virtual Network , Networks Security grouom Azure databricks Workspace and the PrivateEndPoint are part of one Resource Group, Where in the NSG is configured on the Virtual Network. Workspace is part of the VNet as well as the Private End point which is created on the subnet of the Vnet.
+`
+
+| Name |Type |Description|
+|--|--|--|
+|ADB_PRVT_LNK_VNET|	Virtual network	| Vnet with 3 subnets, 2 subnets would host the Azure Databricks Clusters and one for Private Endpoint |
+|databricksuldupgcah4nd2|	Azure Databricks Service|	Azure Databricks Workspace|
+|{resourceGroupName}-nsg|	Network security group|	NSG for Hub|
+||Workspace Endpoint| This private endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link.|
+
 # To Do
 - Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 - Install [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli)
@@ -26,11 +37,5 @@ param location string = 'westus2'`
 - Command to run the Bicep main deployment file, if successful that should create all the Azure Service listed in the table below.
 `az deployment sub create \
     --location "westus2" \
-    --template-file main.bicep `
+    --template-file main.bicep 
 
-| Name |Type |Description|
-|--|--|--|
-|ADB_PRVT_LNK_VNET|	Virtual network	| Vnet with 3 subnets, 2 subnets would host the Azure Databricks Clusters and one for Private Endpoint |
-|databricksuldupgcah4nd2|	Azure Databricks Service|	Azure Databricks Workspace|
-|{resourceGroupName}-nsg|	Network security group|	NSG for Hub|
-||Workspace Endpoint| This private endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link.|
